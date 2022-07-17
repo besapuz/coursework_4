@@ -1,3 +1,4 @@
+from constants import POSTS_PER_PAGE
 from dao.model.movie import Movie
 
 
@@ -20,11 +21,12 @@ class MovieDAO:
         # return t.all()
         return self.session.query(Movie).all()
 
-    def get_by_director_id(self, val):
-        return self.session.query(Movie).filter(Movie.director_id == val).all()
+    def get_by_page(self, page):
+        movie_list = self.session.query(Movie).paginate(page=page, per_page=POSTS_PER_PAGE).items
+        return movie_list
 
-    def get_by_genre_id(self, val):
-        return self.session.query(Movie).filter(Movie.genre_id == val).all()
+    def get_by_status(self, page):
+        return self.session.query(Movie).order_by(Movie.year.desc()).paginate(page=page, per_page=POSTS_PER_PAGE).items
 
     def get_by_year(self, val):
         return self.session.query(Movie).filter(Movie.year == val).all()
