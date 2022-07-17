@@ -23,7 +23,7 @@ class AuthService:
 
         data = {
             "username": username,
-            "password": password
+            "role": user.role
         }
 
         min30 = datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
