@@ -1,22 +1,30 @@
 from flask import request, abort
 from flask_restx import Resource, Namespace
 
-from implemented import auth_service
+from implemented import auth_service, user_service
 
 auth_ns = Namespace('auth')
 
 
-@auth_ns.route('/')
+@auth_ns.route('/register/')
 class AuthView(Resource):
     def post(self):
         req_json = request.json
-        username = req_json.get("username", None)
+        user_service.create(req_json)
+        return "Пользователь добавлен", 201
+
+
+@auth_ns.route('/login/')
+class AuthView(Resource):
+    def post(self):
+        req_json = request.json
+        email = req_json.get("email", None)
         password = req_json.get("password", None)
 
-        if None in [username, password]:
+        if None in [email, password]:
             abort(400)
 
-        token = auth_service.generation_token(username, password)
+        token = auth_service.generation_token(email, password)
         return token, 201
 
     def put(self):

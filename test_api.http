@@ -3,7 +3,7 @@ Accept: application/json
 
 ###
 
-GET http://127.0.0.1:5000/directors/?page=1
+GET http://127.0.0.1:5000/movies/?page=1
 Accept: application/json
 
 ###
@@ -105,14 +105,14 @@ Accept: application/json
 Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Ilx1MDQxMlx1MDQzMFx1MDQ0MVx1MDQzOFx1MDQzYlx1MDQzOFx1MDQzOS0zIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjU3NzU1NTEwfQ.p8b3Sn_qO12HDW1RhIbwJ70NxOAAf3diITJpn-tozVg
 ###
 
-POST http://127.0.0.1:5000/user/
+POST http://127.0.0.1:5000/auth/register/
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "Василий-3",
+  "email": "mk@list.ru",
   "password": "pioho875-",
-  "role": "admin"
+  "role": "user"
 }
 
 ###
@@ -131,23 +131,23 @@ DELETE http://127.0.0.1:5000/user/2
 
 ###
 
-POST http://127.0.0.1:5000/auth/
+POST http://127.0.0.1:5000/auth/login/
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "Василий-3",
+  "email": "mk@list.ru",
   "password": "pioho875-"
 }
 
 ###
 
-PUT http://127.0.0.1:5000/auth/
+PUT http://127.0.0.1:5000/auth/login/
 Accept: application/json
 Content-Type: application/json
 
 {
-  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Ilx1MDQxMlx1MDQzMFx1MDQ0MVx1MDQzOFx1MDQzYlx1MDQzOFx1MDQzOS0zIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjYwMzQ1ODk1fQ.fBNsRT2eIa9EWkcoKln-YL2ilDBxsbSCLnwUuwuzcnA"
+  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1rQGxpc3QucnUiLCJyb2xlIjoidXNlciIsImV4cCI6MTY2MDc2NjA0N30.fEXZ1cBfSQiaYKGkKZ7Hphufq34z2IJbVDtemsXQbc8"
 }
 
 

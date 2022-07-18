@@ -17,12 +17,6 @@ class UserView(Resource):
         return res, 200
 
 
-    def post(self):
-        req_json = request.json
-        user = user_service.create(req_json)
-        return "", 201, {"location": f"/movies/{user.id}"}
-
-
 @user_ns.route('/<int:uid>')
 class UserView(Resource):
     @auth_required
