@@ -10,9 +10,10 @@ genre_ns = Namespace('genres')
 
 @genre_ns.route('/')
 class GenresView(Resource):
-    @auth_required
+    #@auth_required
     def get(self):
-        rs = genre_service.get_all()
+        page = request.args.get("page")
+        rs = genre_service.get_all(page)
         res = GenreSchema(many=True).dump(rs)
         return res, 200
 
