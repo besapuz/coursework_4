@@ -10,8 +10,10 @@ auth_ns = Namespace('auth')
 class AuthView(Resource):
     def post(self):
         req_json = request.json
-        user_service.create(req_json)
-        return "Пользователь добавлен", 201
+        c = user_service.create(req_json)
+        if not c:
+            return "Пользователь существует"
+        return "", 201
 
 
 @auth_ns.route('/login/')
@@ -23,7 +25,6 @@ class AuthView(Resource):
 
         if None in [email, password]:
             abort(400)
-
         token = auth_service.generation_token(email, password)
         return token, 201
 

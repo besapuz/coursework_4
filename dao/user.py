@@ -5,14 +5,11 @@ class UserDao:
     def __init__(self, session):
         self.session = session
 
-    def get_all(self):
-        return self.session.query(User).all()
+    def get_one(self, email):
+        return self.session.query(User).filter(User.email == email).all()
 
-    def get_one(self, uid):
-        return self.session.query(User).get(uid)
-
-    def get_username(self, username):
-        return self.session.query(User).filter(User.email == username).first()
+    def get_email(self, email):
+        return self.session.query(User).filter(User.email == email).first()
 
     def create(self, user_a):
         ent = User(**user_a)

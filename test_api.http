@@ -102,7 +102,7 @@ Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Ilx1MDQyZVx1
 
 GET http://127.0.0.1:5000/user/
 Accept: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Ilx1MDQxMlx1MDQzMFx1MDQ0MVx1MDQzOFx1MDQzYlx1MDQzOFx1MDQzOS0zIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjU3NzU1NTEwfQ.p8b3Sn_qO12HDW1RhIbwJ70NxOAAf3diITJpn-tozVg
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjEwa0BsaXN0LnJ1Iiwicm9sZSI6InVzZXIiLCJleHAiOjE2NTgyNjc2ODh9.V9rZMlD7JGIN1P8HygU4bMowFqQ6p8toOPu3c_FGLDk
 ###
 
 POST http://127.0.0.1:5000/auth/register/
@@ -110,9 +110,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "mk@list.ru",
+  "email": "11k@list.ru",
   "password": "pioho875-",
-  "role": "user"
+  "role": "user",
+  "surname": "Пупкин",
+  "name": "Вася",
+  "favorite_genre": 17
 }
 
 ###
@@ -136,7 +139,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "mk@list.ru",
+  "email": "10k@list.ru",
   "password": "pioho875-"
 }
 
@@ -147,7 +150,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1rQGxpc3QucnUiLCJyb2xlIjoidXNlciIsImV4cCI6MTY2MDc2NjA0N30.fEXZ1cBfSQiaYKGkKZ7Hphufq34z2IJbVDtemsXQbc8"
+  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1rQGxpc3QucnUiLCJyb2xlIjoidXNlciIsImV4cCI6MTY2MDg0OTk4OH0.MH9bYW417nVPIHFaOHNseczYH7hlutm51pb4hzCciyQ"
 }
 
 
