@@ -10,8 +10,8 @@ class UserService:
     def __init__(self, dao: UserDao):
         self.dao = dao
 
-    def get_one(self, email):
-        return self.dao.get_one(email)
+    # def get_one(self, email):
+    #     return self.dao.get_one(email)
 
     def get_by_email(self, email):
         return self.dao.get_email(email)
@@ -25,9 +25,12 @@ class UserService:
             return False
         return self.dao.create(user_d)
 
-    def update(self, user_d):
-        user_d["password"] = self.generate_password(user_d["password"])
-        self.dao.update(user_d)
+    def update(self, user_d, email):
+        self.dao.update(user_d, email)
+        return self.dao
+
+    def update_password(self, user_d, email):
+        self.dao.update_password(user_d, email)
         return self.dao
 
     def delete(self, uid):
@@ -43,6 +46,7 @@ class UserService:
         return hash_digest
 
     def compare_password(self, password_hash, other_password):
+
         hash_digest = base64.b64encode(hashlib.pbkdf2_hmac(
             ALGO,
             other_password.encode('utf-8'),

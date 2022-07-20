@@ -22,11 +22,21 @@ class UserDao:
         self.session.delete(user)
         self.session.commit()
 
-    def update(self, user_a):
-        user = self.get_one(user_a.get("id"))
-        user.username = user_a.get("username")
-        user.password = user_a.get("password")
-        user.role = user_a.get("role")
+    def update(self, user_a, email):
+        user = self.get_email(email)
+        if 'favorite_genre' in user_a:
+            user.favorite_genre = user_a.get('favorite_genre')
+        if 'surname' in user_a:
+            user.surname = user_a.get('surname')
+        if 'name' in user_a:
+            user.name = user_a.get('name')
+
+        self.session.add(user)
+        self.session.commit()
+
+    def update_password(self, password_new, email):
+        user = self.get_email(email)
+        user.password = password_new
 
         self.session.add(user)
         self.session.commit()
